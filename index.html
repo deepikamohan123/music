@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<div class="player-container">
+    <img src="https://th.bing.com/th?id=OIP.xUVnuBvo_YBRlhjvLIQFIAHaJ_&w=215&h=290&c=8&rs=1&qlt=90&o=6&dpr=2&pid=3.1&rm=2"
+        height="350px" width="330px" style=" border-radius: 20px;">
+    <audio id="audioPlayer" controls style="width: 500px; height: 50px; ">
+        <source>
+    </audio>
+    <div class="controls">
+        <button id="prevButton"><i class="fas fa-chevron-left"></i></button>
+        <button id="nextButton"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <p id="currentSong" style="font-size:xx-large;"><b>Now Playing:</b> </p>
+</div>
+<script>
+    const audioPlayer = document.getElementById("audioPlayer");
+    const nextButton = document.getElementById("nextButton");
+    const prevButton = document.getElementById("prevButton");
+    const currentSongText = document.getElementById("currentSong");
+
+    const playlist = [
+        { name: "Feeling Good", url: "1.mp3", },
+        { name: "Viva la Viva", url: "2.mp3", },
+        { name: "Bye bye", url: "3.mp3", },
+        { name: "Mandharame", url: "4.mp3", },
+        { name: "Thanka thingal", url: "5.mp3", },
+        { name: "Saathiya", url: "6.mp3", },
+    ];
+
+    // present song index
+    let currentSongIndex = 0;
+
+    // present song
+    function loadSong(index) {
+        audioPlayer.src = playlist[index].url;
+        currentSongText.textContent = `Now Playing: ${playlist[index].name} `;
+        document.body.style.backgroundImage = url('${playlist[index].background}');
+        audioPlayer.play();
+    }
+
+    // Event listener
+    nextButton.addEventListener("click", () => {
+        currentSongIndex = (currentSongIndex + 1) % playlist.length; // start
+        loadSong(currentSongIndex);
+    });
+
+    prevButton.addEventListener("click", () => {
+        currentSongIndex =
+            (currentSongIndex - 1 + playlist.length) % playlist.length; // end
+        loadSong(currentSongIndex);
+    });
+
+    // first song 
+    loadSong(currentSongIndex);
+
+</script>
+</body>
+
+</html>

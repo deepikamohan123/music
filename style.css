@@ -1,0 +1,60 @@
+body {
+    font-family: lucidacalligraphy;
+    justify-content: center;
+    text-align: center;
+    background-size: 1500px 700px;
+background-color: aliceblue;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    color: aliceblue;
+    
+}
+
+.player-container {
+    box-shadow: 0px 4px 12px gray;
+    padding: 20px;
+    margin: 0 auto;
+    margin-top: 100px;
+    width: 500px;
+}
+
+.controls button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#currentSong {
+    font-size: 18px;
+    margin-top: 20px;
+}
+.arrow {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+  }
+.pre
+
+  .prev {
+    border-width: 15px 20px 15px 0;
+    border-color: transparent #bcb6b6 transparent transparent;
+  }
+
+  .prev:hover {
+    border-color: transparent #d7ccc8 transparent transparent;
+    transform: scale(1.1);
+  }
+
+
+  .next {
+    border-width: 15px 0 15px 20px;
+    border-color: transparent transparent transparent #b5a9a9;
+  }
+
+  .next:hover {
+    transform: scale(1.1);
+  }
